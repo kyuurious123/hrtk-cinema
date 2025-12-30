@@ -1,4 +1,3 @@
-// src/pages/ListPage.tsx
 import React, { useState } from 'react'
 import MovieCard from '../components/MovieCard'
 
@@ -16,7 +15,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
   return shuffled
 }
 
-const ListPage: React.FC = () => {
+const List: React.FC = () => {
   // 현재 선택된 탭 (기본값: ALL)
   const [activeTab, setActiveTab] = useState<TabType>('ALL')
 
