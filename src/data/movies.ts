@@ -89,7 +89,7 @@ export const movies: Movie[] = [
     id: 6,
     type: 'ILLUSTRATION',
     author: '계란',
-    titleKo: '장화홍련',
+    titleKo: '장화, 홍련',
     titleEn: 'A Tale of Two Sisters',
     thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/two-sisters.jpg',
     genre: '공포, 스릴러',
@@ -202,7 +202,7 @@ export const movies: Movie[] = [
     author: '매리',
     titleKo: '뷰티 인사이드',
     titleEn: 'The Beauty Inside',
-    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/blade.webp',
+    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/beauty-inside.jpg',
     genre: '로맨스',
     synopsis: '자고 일어나면 겉모습이 매일 다른 사람으로 변하는 우진. 무덤덤하게 새로운 얼굴로 하루하루를 맞이하던 어느 날, 우연히 만난 이수와 사랑에 빠진 그는 난생처음 자신의 비밀을 털어놓기로 결심한다.',
     watchLinks: [
