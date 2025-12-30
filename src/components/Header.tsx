@@ -17,6 +17,18 @@ function Header() {
           >
             MAIN
           </Link>
+          <span className="text-gray-700">|</span>
+          
+          <Link 
+            to="/list" 
+            className={`text-sm transition-colors w-[60px] text-center leading-6 ${
+              location.pathname === '/list' 
+                ? 'text-white font-bold' 
+                : 'text-gray-500 hover:text-gray-300'
+            }`}
+          >
+            LIST
+          </Link>
           
           <span className="text-gray-700">|</span>
           
