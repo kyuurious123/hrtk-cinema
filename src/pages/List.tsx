@@ -63,4 +63,4 @@ const List: React.FC = () => {
   )
 }
 
-export default List as React.FC
+export default List
