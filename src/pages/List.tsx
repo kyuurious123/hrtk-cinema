@@ -64,4 +64,4 @@ const ListPage: React.FC = () => {
   )
 }
 
-export default ListPage as React.FC
+export default List as React.FC
