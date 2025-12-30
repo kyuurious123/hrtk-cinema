@@ -1,10 +1,20 @@
 // src/pages/ListPage.tsx
-import React, { useState, useMemo } from 'react'
+import React, { useState } from 'react'
 import MovieCard from '../components/MovieCard'
 
 import { movies } from '../data/movies'
 
 type TabType = 'ALL' | 'NOVEL' | 'ILLUSTRATION' | 'COMICS'
+
+// Fisher-Yates 셔플 알고리즘
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
 
 const ListPage: React.FC = () => {
   // 현재 선택된 탭 (기본값: ALL)
@@ -13,13 +23,10 @@ const ListPage: React.FC = () => {
   // 탭 목록
   const tabs: TabType[] = ['ALL', 'NOVEL', 'ILLUSTRATION', 'COMICS']
 
-  // 탭에 따라 필터링된 영화 목록
-  const filteredMovies = useMemo(() => {
-    if (activeTab === 'ALL') {
-      return movies
-    }
-    return movies.filter((movie) => movie.type === activeTab)
-  }, [activeTab])
+  // 탭에 따라 필터링하고 매번 섞기
+  const filteredMovies = activeTab === 'ALL' 
+    ? shuffleArray(movies)
+    : shuffleArray(movies.filter((movie) => movie.type === activeTab))
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-4">

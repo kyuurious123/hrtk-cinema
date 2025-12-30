@@ -9,7 +9,7 @@ function Header() {
         <nav className="flex justify-center gap-4">
           <Link 
             to="/" 
-            className={`text-sm transition-colors w-[60px] text-center leading-6 ${
+            className={`text transition-colors w-[60px] text-center leading-6 ${
               location.pathname === '/' 
                 ? 'text-white font-bold' 
                 : 'text-gray-500 hover:text-gray-300'
