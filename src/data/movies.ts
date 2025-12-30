@@ -316,11 +316,11 @@ export const movies: Movie[] = [
     id: 19,
     type: 'NOVEL',
     author: '슈므',
-    titleKo: '스타트렉',
+    titleKo: '스타트렉: 더 비기닝',
     titleEn: 'Star Trek',
     thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/star-trek.png',
     genre: '액션, SF',
-    synopsis: '거대한 에너지를 가진 미지의 물체가 지구로 다가오는 것이 포착된다. 마치 블랙홀처럼 주변의 모든 것을 빨아들이면서 지구로 다가오는 이 미지의 물체를 막기 위해 일선에서 물러나있던 커크 선장이 돌아온다. 후임 선장인 덱커와 충돌을 빚으며 엔터프라이즈호를 지휘하던 커크 선장은 마침내 물체의 비밀을 밝혀낸다.',
+    synopsis: '우주를 항해하던 켈빈호 앞에 정체불명의 함선이 나타나 공격한다. 커크는 자신을 희생해 선원들을 구한다. 혼돈의 그날 태어난 아들 제임스 커크. 방황하던 커크는 파이크 함장의 조언을 듣고 스타플릿에 입대한다. 아버지의 뒤를 잇기 위해 아카데미에서 훈련을 받게 되는데.',
     watchLinks: [
       { name: '웨이브', url: 'https://www.wavve.com/player/movie?movieid=MV_CQ01_PT0000011179' }
     ]
