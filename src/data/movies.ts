@@ -318,7 +318,7 @@ export const movies: Movie[] = [
     author: '슈므',
     titleKo: '스타트렉: 더 비기닝',
     titleEn: 'Star Trek',
-    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/star-trek.png',
+    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/star-trek2.png',
     genre: '액션, SF',
     synopsis: '우주를 항해하던 켈빈호 앞에 정체불명의 함선이 나타나 공격한다. 커크는 자신을 희생해 선원들을 구한다. 혼돈의 그날 태어난 아들 제임스 커크. 방황하던 커크는 파이크 함장의 조언을 듣고 스타플릿에 입대한다. 아버지의 뒤를 잇기 위해 아카데미에서 훈련을 받게 되는데.',
     watchLinks: [
