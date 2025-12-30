@@ -50,7 +50,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline font-medium hover:bg-gray-100 hover:border-gray-400 transition-colors"
+                className="inline font-medium hover:border-gray-400 transition-colors"
               >
                 {link.name}
                 <img src={ArrowIcon} alt="아이콘" className="inline ml-2 w-[12px]" />
