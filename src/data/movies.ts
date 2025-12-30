@@ -173,12 +173,12 @@ export const movies: Movie[] = [
     type: 'ILLUSTRATION',
     author: '나가',
     titleKo: '해피엔드',
-    titleEn: 'Happy End',
-    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/blade.webp',
-    genre: '액션, SF',
-    synopsis: '출산을 바로 앞둔 산모가 응급실에 실려온다. 이미 위독한 상황에 있는 산모에게서 뱃속의 아이라도 살리기 위해 응급수술이 시작된다. 그러나 누구도 산모가 뱀파이어에게 물렸다는 사실을 모른다. 산모의 몸 속에 스며든 뱀파이어의 피는 아기의 혈관 속으로 스며들어 아이의 운명을 바꾼다.',
+    titleEn: 'Happyend',
+    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/happyend.jpg',
+    genre: '재난, SF',
+    synopsis: '점멸등이 일렁이는 근미래의 도쿄. 음악에 빠진 고등학생 유타와 코우는 친구들과 함께 자유로운 나날을 보낸다. 동아리방을 찾아 늦은 밤 학교에 잠입한 그들은 교장의 고급 차량에 장난을 치고, 분노한 학교는 AI 감시 체제를 도입한다. 그날 이후 그들을 둘러싼 모든 것이 조금씩 달라지기 시작하는데...',
     watchLinks: [
-      { name: '웨이브', url: 'wavve.com/player/movie?movieid=MV_CD01_WR0000011139' }
+      { name: '디즈니+', url: 'https://www.disneyplus.com/ko-kr/browse/entity-49c74be6-0c82-47b8-9a33-06559e4a2079?irclickid=x3jWeDXnSxycT9g1SFTE11p5UkpVqY0kxSEeXk0&campaignId=9358&irgwc=1&afsrc=1&cid=DSS-Affiliate-Impact-Content-JustWatch+GmbH-705874&tgclid=0301000d-19b7-4346-8f00-080f6953e704' }
     ]
   },
   {
