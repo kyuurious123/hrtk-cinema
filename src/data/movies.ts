@@ -162,8 +162,8 @@ export const movies: Movie[] = [
     titleKo: '박쥐',
     titleEn: 'Thirst',
     thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/thirst.jpeg',
-    genre: '액션, SF',
-    synopsis: '출산을 바로 앞둔 산모가 응급실에 실려온다. 이미 위독한 상황에 있는 산모에게서 뱃속의 아이라도 살리기 위해 응급수술이 시작된다. 그러나 누구도 산모가 뱀파이어에게 물렸다는 사실을 모른다. 산모의 몸 속에 스며든 뱀파이어의 피는 아기의 혈관 속으로 스며들어 아이의 운명을 바꾼다.',
+    genre: '호러, 로맨스',
+    synopsis: '신부 상현은 백신개발 실험에 참여하다가 바이러스에 감염되고, 수수께끼의 피를 수혈받아 살아난 뒤로 피를 갈망하는 뱀파이어가 된다. 상현은 신앙심과 흡혈을 향한 욕망이 사이에서 갈등하던 중 어린시절 친구인 강우와 그의 아내 태주를 만나게 된다.',
     watchLinks: [
       { name: '웨이브', url: 'wavve.com/player/movie?movieid=MV_CD01_WR0000011139' }
     ]
