@@ -10,7 +10,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   return (
     <div className="hover:-translate-y-1 transition-all duration-200 text-white">
       {/* 카드 상단: 작품 종류 + 작가명 */}
-      <div className="flex justify-between items-center mb-4 pb-2 border-b border-white text-sm">
+      <div className="flex justify-between items-center mb-4 pb-2 border-b border-white">
         <span>
           {movie.type}
         </span>
@@ -18,7 +18,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
       </div>
       <div>
         {/* 제목 */}
-        <h3 className="text-3xl font-bold mb-1">
+        <h3 className="text-3xl font-bold">
           {movie.titleKo}
         </h3>
         <p className="font-semibold mb-4">{movie.titleEn}</p>
@@ -34,7 +34,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
       </div>
 
       {/* 카드 본문 */}
-      <div className="py-3">
+      <div className="py-3 text-[15px]">
 
         {/* 장르, 볼 수 있는 사이트 링크들 */}
         <div className="flex justify-between flex-wrap mb-3">
@@ -48,7 +48,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium hover:bg-gray-100 hover:border-gray-400 transition-colors"
+                className="font-medium hover:text-gray-200 transition-colors"
               >
                 {link.name}
                 <img 
@@ -62,7 +62,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
         </div>
 
         {/* 줄거리 */}
-        <p className="text-sm leading-relaxed mb-4 line-clamp-3">
+        <p className="leading-relaxed mb-4 line-clamp-3">
           {movie.synopsis}
         </p>
 

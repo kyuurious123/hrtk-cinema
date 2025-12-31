@@ -13,6 +13,16 @@ const ListPage: React.FC = () => {
   // 탭 목록
   const tabs: TabType[] = ['ALL', 'NOVEL', 'ILLUSTRATION', 'COMICS']
 
+  // 각 탭별 개수 계산
+  const tabCounts = useMemo(() => {
+    return {
+      ALL: movies.length,
+      NOVEL: movies.filter((movie) => movie.type === 'NOVEL').length,
+      ILLUSTRATION: movies.filter((movie) => movie.type === 'ILLUSTRATION').length,
+      COMICS: movies.filter((movie) => movie.type === 'COMICS').length,
+    }
+  }, [])
+
   // 탭에 따라 필터링된 영화 목록
   const filteredMovies = useMemo(() => {
     if (activeTab === 'ALL') {
@@ -35,7 +45,7 @@ const ListPage: React.FC = () => {
                 : 'bg-transparent border text-white border-white'
             }`}
           >
-            {tab}
+            {tab} {tabCounts[tab]}
           </button>
         ))}
       </div>
