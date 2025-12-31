@@ -34,7 +34,7 @@ const ListPage: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-4">
       {/* TAB 메뉴 */}
-      <div className="flex gap-2 mb-10 overflow-x-auto">
+      <div className="flex gap-2 mb-10 overflow-x-auto scrollbar-hide">
         {tabs.map((tab) => (
           <button
             key={tab}
