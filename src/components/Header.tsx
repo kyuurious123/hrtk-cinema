@@ -19,7 +19,7 @@ function Header() {
           </Link>
           <span className="text-gray-700">|</span>
           
-          {/* <Link 
+          <Link 
             to="/list" 
             className={`text-sm transition-colors w-[60px] text-center leading-6 ${
               location.pathname === '/list' 
@@ -30,7 +30,7 @@ function Header() {
             LIST
           </Link>
           
-          <span className="text-gray-700">|</span> */}
+          <span className="text-gray-700">|</span>
           
           <Link 
             to="/notice" 

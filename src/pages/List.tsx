@@ -1,31 +1,42 @@
-import React, { useState } from 'react'
+// src/pages/ListPage.tsx
+import React, { useState, useMemo } from 'react'
 import MovieCard from '../components/MovieCard'
 
 import { movies } from '../data/movies'
 
 type TabType = 'ALL' | 'NOVEL' | 'ILLUSTRATION' | 'COMICS'
 
-// Fisher-Yates 셔플 알고리즘
-const shuffleArray = <T,>(array: T[]): T[] => {
-  const shuffled = [...array]
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-  }
-  return shuffled
-}
-
-const List: React.FC = () => {
+const ListPage: React.FC = () => {
   // 현재 선택된 탭 (기본값: ALL)
   const [activeTab, setActiveTab] = useState<TabType>('ALL')
 
   // 탭 목록
   const tabs: TabType[] = ['ALL', 'NOVEL', 'ILLUSTRATION', 'COMICS']
 
-  // 탭에 따라 필터링하고 매번 섞기
-  const filteredMovies = activeTab === 'ALL' 
-    ? shuffleArray(movies)
-    : shuffleArray(movies.filter((movie) => movie.type === activeTab))
+  // 각 탭별 개수 계산
+  const tabCounts = useMemo(() => {
+    return {
+      ALL: movies.length,
+      NOVEL: movies.filter((movie) => movie.type === 'NOVEL').length,
+      ILLUSTRATION: movies.filter((movie) => movie.type === 'ILLUSTRATION').length,
+      COMICS: movies.filter((movie) => movie.type === 'COMICS').length,
+    }
+  }, [])
+
+  // 탭에 따라 필터링된 영화 목록 (랜덤 순서)
+  const filteredMovies = useMemo(() => {
+    let filtered = activeTab === 'ALL' 
+      ? [...movies] 
+      : movies.filter((movie) => movie.type === activeTab)
+    
+    // 배열을 랜덤하게 섞기 (Fisher-Yates 알고리즘)
+    for (let i = filtered.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [filtered[i], filtered[j]] = [filtered[j], filtered[i]]
+    }
+    
+    return filtered
+  }, [activeTab])
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-4">
@@ -41,7 +52,7 @@ const List: React.FC = () => {
                 : 'bg-transparent border text-white border-white'
             }`}
           >
-            {tab}
+            {tab} {tabCounts[tab]}
           </button>
         ))}
       </div>
@@ -63,4 +74,4 @@ const List: React.FC = () => {
   )
 }
 
-export default List
+export default ListPage

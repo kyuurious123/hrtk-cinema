@@ -134,7 +134,7 @@ export const movies: Movie[] = [
     titleEn: 'Even If This Love Disappears from the World Tonight',
     thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/even-if-this-love.png',
     genre: '로맨스',
-    synopsis: '"카미야 토루에 대해 잊지 말 것” 자고 일어나면 전날의 기억을 잃는 ‘선행성 기억상실증’에 걸린 소녀 마오리. 누구에게도 기억되지 않는 무색무취의 평범한 소년 ‘토루’ 매일 밤 사랑이 사라지는 세계. 그럼에도 불구하고, 다음 날 서로를 향한 애틋한 고백을 반복하는 두 소년, 소녀의 가장 슬픈 청춘담',
+    synopsis: '"카미야 토루에 대해 잊지 말 것” 자고 일어나면 전날의 기억을 잃는 선행성 기억상실증에 걸린 소녀 마오리. 누구에게도 기억되지 않는 무색무취의 평범한 소년 토루. 매일 밤 사랑이 사라지는 세계. 그럼에도 불구하고, 다음 날 서로를 향한 애틋한 고백을 반복하는 두 소년, 소녀의 가장 슬픈 청춘담',
     watchLinks: [
       { name: '웨이브', url: 'https://www.wavve.com/player/movie?movieid=MV_MC01_MC000000028' }
     ]
@@ -161,7 +161,7 @@ export const movies: Movie[] = [
     author: 'YO',
     titleKo: '박쥐',
     titleEn: 'Thirst',
-    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/thirst.jpeg',
+    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/thirst2.jpeg',
     genre: '호러, 로맨스',
     synopsis: '신부 상현은 백신개발 실험에 참여하다가 바이러스에 감염되고, 수수께끼의 피를 수혈받아 살아난 뒤로 피를 갈망하는 뱀파이어가 된다. 상현은 신앙심과 흡혈을 향한 욕망이 사이에서 갈등하던 중 어린시절 친구인 강우와 그의 아내 태주를 만나게 된다.',
     watchLinks: [
@@ -234,7 +234,7 @@ export const movies: Movie[] = [
     titleEn: 'In the Mood for Love',
     thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/mood-for-love.webp',
     genre: '로맨스',
-    synopsis: '홍콩의 지역 신문 편집장인 초 모완, 수출회사의 비서로 근무하는 수 리첸. 둘은 상하이의 한 건물로 같은 날 이사하게 된다. 이사 날부터 자주 부딪히게 되는 두 사람. 둘 다 가정이 있지만 어쩐지 배우자들은 자리를 비우는 날이 더 많고 두 사람의 외로움은 서로에게 낯설지 않게 다가와 가깝게 한다. 감정이 깊어질수록 예견된 이별 앞에 마음이 혼란스럽다.',
+    synopsis: '1962년 홍콩, 한 아파트에 같은 날 두 쌍의 부부가 이사온다. 우연히 계속 마주치던 차우와 첸 부인은 서로의 배우자가 사랑에 빠졌다는 사실을 눈치채고, 서로를 의식하기 시작한다. 비밀스러운 만남에 궁금함을 느낀 차우와 첸 부인 역시 둘만의 만남을 가지기 시작한다. 서로에게 적당한 거리를 두려고 하지만 그 시도는 실패하기만 하고, 마음은 깊어져만 간다.',
     watchLinks: [
       { name: '넷플릭스', url: 'https://www.netflix.com/kr/title/81580523' },
       { name: '왓챠', url: 'https://watcha.com/contents/my5YK3O' },
@@ -249,8 +249,8 @@ export const movies: Movie[] = [
     titleKo: '해리포터',
     titleEn: 'Harry Potter',
     thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/harrypoter.jpg',
-    genre: '액션, 판타지',
-    synopsis: '해리 포터에겐 이번 여름방학이 별로 즐겁질 못했다. 마법이라면 질색을 하는 페투니아 이모와 버논 이모부의 구박도 그렇지만, 무엇보다 속상한 건 단짝이었던 론 위즐리와 헤르미온느 그레인저가 그 사이 자신을 까맣게 잊었는지 자신의 편지에 답장 한 통 없다는 것. 그러던 어느날 꼬마 집요정 도비가 해리의 침실에 나타나 뜻밖의 얘기를 한다.',
+    genre: '판타지, 액션',
+    synopsis: '친척집에서 구박받는 생활을 하던 해리는 11살 생일을 앞두고 호그와트 마법학교로부터 입학초대장을 받고 자신이 마법사라는 사실을 알게 된다. 해리는 호그와트 마법학교로 가는 열차에서 친구 론, 헤르미온느를 사귀고 마법, 신비, 모험으로 가득한 학교생활을 시작한다.',
     watchLinks: [
       { name: '웨이브', url: 'https://www.wavve.com/player/movie?movieid=MV_CD01_WR0000011244' }
     ]
@@ -291,7 +291,7 @@ export const movies: Movie[] = [
     author: '뵤뵤',
     titleKo: '넥스트',
     titleEn: 'Next',
-    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/next.jpg',
+    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/next2.jpg',
     genre: 'SF, 스릴러',
     synopsis: '라스베가스의 마술사 크리스 존슨. 그는 2분 후의 미래를 볼 수 있는 아주 특별한 능력을 갖고 있지만, 가급적 드러내지 않고 조용히 지내려 한다. 그러던 어느 날, 카지노에서 총기강도 사건을 예견하고, 사고를 방지하려다가 도리어 총기강도 사건에 휘말린다.',
     watchLinks: [
