@@ -29,7 +29,7 @@ export const movies: Movie[] = [
     synopsis: '유전자 조작이 흔해진 미래, 열성 유전자를 가진 빈센트는 우주비행사를 꿈꾸지만 유전자 탓에 시험에 매번 떨어진다. 우주 항공회사 가타카의 청소부로 일하던 빈센트는 우성 유전자를 가졌지만 사고로 수영선수를 그만둔 유진과 계약하여 가짜 신분을 만들어낸다.',
     watchLinks: [
       { name: '왓챠', url: 'https://watcha.com/contents/mwWLpkW' },
-      { name: 'Wavve', url: 'https://www.wavve.com/player/movie?movieid=MV_CF01_SY0000011284' }
+      { name: '웨이브', url: 'https://www.wavve.com/player/movie?movieid=MV_CF01_SY0000011284' }
     ]
   },
   {
