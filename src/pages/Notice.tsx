@@ -2,7 +2,7 @@ import TicketCard from '../components/TicketCard'
 
 function Notice() {
   return (
-    <div className="min-h-screen px-5 py-8 bg-[#1d1a1a] text-gray-900 leading-7">
+    <div className="min-h-screen px-5 py-8 bg-[#09090b] text-gray-900 leading-7">
       <div className="max-w-full md:max-w-[400px] mx-auto">
         
         <div>

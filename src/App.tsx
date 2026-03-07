@@ -1,23 +1,26 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Header from './components/Header'
+// src/App.tsx
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import Home from './pages/Home'
-import Notice from './pages/Notice'
-import List from './pages/List'
+import Detail from './pages/Detail'
 
-function App() {
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
+
+export default function App() {
   return (
     <BrowserRouter>
-      <div className="h-full w-full">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/notice" element={<Notice />} />
-          <Route path="/list" element={<List />} />
-        </Routes>
-        <p className="text-xs text-[#4E4747] pt-2 pb-8 text-center">© Copyright 2025 hrtk_cinema</p>
-      </div>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/post/:id" element={<Detail />} />
+      </Routes>
     </BrowserRouter>
   )
 }
-
-export default App

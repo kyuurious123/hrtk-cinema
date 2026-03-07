@@ -4,9 +4,9 @@ function Header() {
   const location = useLocation()
   
   return (
-    <header className="bg-[#1d1a1a]">
-      <div className="max-w-full md:max-w-[600px] mx-auto px-8 py-4">
-        <nav className="flex justify-center gap-4">
+    <header className="bg-[#09090b] scrollbar-hide">
+      <div className="max-w-full md:max-w-[600px] mx-auto px-8 py-4 scrollbar-hide">
+        <nav className="flex justify-center gap-4 scrollbar-hide">
           <Link 
             to="/" 
             className={`text transition-colors w-[60px] text-center leading-6 ${
