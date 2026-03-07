@@ -8,6 +8,7 @@ export type IllustrationContent = {
   kind: 'illustration'
   imageUrl: string | string[] | IllustrationImage[]
   hoverImageUrl?: string
+  width?: string
   backgroundUrl?: string
 }
 
@@ -40,7 +41,7 @@ export const movies: Movie[] = [
     titleKo: '가타카',
     titleEn: 'Gattaca',
     title: '증명',
-    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/gattaca.jpg',
+    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/gattaca.webp',
     genre: 'SF, 미스터리',
     synopsis: '유전자 조작이 흔해진 미래, 열성 유전자를 가진 빈센트는 우주비행사를 꿈꾸지만 유전자 탓에 시험에 매번 떨어진다. 우주 항공회사 가타카의 청소부로 일하던 빈센트는 우성 유전자를 가졌지만 사고로 수영선수를 그만둔 유진과 계약하여 가짜 신분을 만들어낸다.',
     watchLinks: [
@@ -56,7 +57,7 @@ export const movies: Movie[] = [
     titleKo: '윤희에게',
     titleEn: 'Moonlit Winter',
     title: '윤희에게',
-    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/moonlit-winter.jpg',
+    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/moonlit-winter.webp',
     genre: '드라마, 로맨스',
     synopsis: '겨울, 모녀는 단둘이 산다. 고등학생 딸은 우연히 엄마에게 온 편지를 읽고 그녀가 한평생 숨겨온 비밀을 알아챈다. 그렇게 엄마와 딸의 아름다운 여행이 시작된다. 하얗게 눈이 내린 고요한 마을 오타루, 이곳에서 모녀는 화해의 길로 들어서는 한편, 설레는 추억을 쌓아 나간다.',
     watchLinks: [
@@ -108,7 +109,7 @@ export const movies: Movie[] = [
   //   author: '100',
   //   titleKo: '좀비랜드',
   //   titleEn: 'Zombieland',
-  //   thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/zombieland.jpg',
+  //   thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/zombieland.webp',
   //   genre: '좀비, 코미디',
   //   synopsis: '한 청년이 부모님을 만나러 콜럼버스로 향하는 도중 무자비하게 좀비를 죽이는 한 남자를 만난다.',
   //   watchLinks: [
@@ -123,7 +124,7 @@ export const movies: Movie[] = [
     titleKo: '장화, 홍련',
     titleEn: 'A Tale of Two Sisters',
     title: '장화, 홍련',
-    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/two-sisters.jpg',
+    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/two-sisters.webp',
     genre: '공포, 스릴러',
     synopsis: '엄마의 죽음 이후, 집은 어두운 기운에 휩싸여 있다.',
     watchLinks: [
@@ -136,7 +137,7 @@ export const movies: Movie[] = [
       kind: 'illustration',
       imageUrl: 'https://raw.githubusercontent.com/kyuurious123/movie-image/main/illust/two-sisters01.webp',
       hoverImageUrl: 'https://github.com/kyuurious123/movie-image/raw/main/illust/two-sisters02.webp',
-      backgroundUrl: '/images/illustration/작품명_bg.png',  
+      backgroundUrl: 'https://github.com/kyuurious123/movie-image/raw/main/illust/bg.webp',  
     },
   },
   {
@@ -146,7 +147,7 @@ export const movies: Movie[] = [
     titleKo: '이제 그만 끝낼까 해',
     titleEn: "I'm Thinking of Ending Things",
     title: '이제 그만 끝낼까 해',
-    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/im-thinking-of.jpg',
+    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/im-thinking-of.webp',
     genre: '공포',
     synopsis: '한 여자가 새로 사귄 남자 친구 제이크의 부모님이 계신 농장으로 향한다. 그리고 어딘가 모르게 기이한 그의 어머니와 아버지를 만나고 눈보라에 발이 묶이면서 의문을 품게 된다. 그와 그녀 자신에 대해. 눈앞에 보이는 현실과 이제까지 알고 있고 이해하고 있다고 생각했던 모든 것에 대해.',
     watchLinks: [
@@ -195,7 +196,7 @@ export const movies: Movie[] = [
   //   author: '람이',
   //   titleKo: '신과 함께',
   //   titleEn: 'Along with the Gods',
-  //   thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/with-the-gods.jpg',
+  //   thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/with-the-gods.webp',
   //   genre: '판타지',
   //   synopsis: '화재 현장에서 아이를 구하고 죽은 소방관 자홍.',
   //   watchLinks: [
@@ -212,7 +213,7 @@ export const movies: Movie[] = [
     titleKo: '해피엔드',
     titleEn: 'Happyend',
     title: '해피엔드',
-    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/happyend.jpg',
+    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/happyend.webp',
     genre: '재난, SF',
     synopsis: '점멸등이 일렁이는 근미래의 도쿄. 음악에 빠진 고등학생 유타와 코우는 친구들과 함께 자유로운 나날을 보낸다. 동아리방을 찾아 늦은 밤 학교에 잠입한 그들은 교장의 고급 차량에 장난을 치고, 분노한 학교는 AI 감시 체제를 도입한다. 그날 이후 그들을 둘러싼 모든 것이 조금씩 달라지기 시작하는데...',
     watchLinks: [
@@ -230,7 +231,7 @@ export const movies: Movie[] = [
     titleKo: '뷰티 인사이드',
     titleEn: 'The Beauty Inside',
     title: 'Time to',
-    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/beauty-inside.jpg',
+    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/beauty-inside.webp',
     genre: '로맨스',
     synopsis: '자고 일어나면 겉모습이 매일 다른 사람으로 변하는 우진. 무덤덤하게 새로운 얼굴로 하루하루를 맞이하던 어느 날, 우연히 만난 이수와 사랑에 빠진 그는 난생처음 자신의 비밀을 털어놓기로 결심한다.',
     watchLinks: [
@@ -245,7 +246,7 @@ export const movies: Movie[] = [
   //   author: '걸신',
   //   titleKo: '베드타임 스토리',
   //   titleEn: 'Bedtime Stories',
-  //   thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/bedtime-stories.jpg',
+  //   thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/bedtime-stories.webp',
   //   genre: '코미디, 가족',
   //   synopsis: '어느날 갑자기 당신이 벤허의 주인공이 되어 콜로세움을 질주한다면.',
   //   watchLinks: [
@@ -261,7 +262,7 @@ export const movies: Movie[] = [
     titleKo: '해리포터',
     titleEn: 'Harry Potter',
     title: '해리포터',
-    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/harrypoter.jpg',
+    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/harrypoter.webp',
     genre: '판타지, 액션',
     synopsis: '친척집에서 구박받는 생활을 하던 해리는 11살 생일을 앞두고 호그와트 마법학교로부터 입학초대장을 받고 자신이 마법사라는 사실을 알게 된다. 해리는 호그와트 마법학교로 가는 열차에서 친구 론, 헤르미온느를 사귀고 마법, 신비, 모험으로 가득한 학교생활을 시작한다.',
     watchLinks: [
@@ -280,7 +281,7 @@ export const movies: Movie[] = [
     titleKo: '콘스탄틴',
     titleEn: 'Constantine',
     title: '콘스탄틴',
-    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/Constantine.jpg',
+    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/constantine.webp',
     genre: '판타지',
     synopsis: '콘스탄틴은 천국과 지옥을 넘나들며 세상의 악을 지옥으로 돌려보낸다. 어느 날, 전투에 지친 콘스탄틴에게 형사 안젤라가 찾아와 동생의 죽음에 대한 의문을 풀기 위한 도움을 요청한다.',
     watchLinks: [
@@ -360,7 +361,7 @@ export const movies: Movie[] = [
     titleKo: '넥스트',
     titleEn: 'Next',
     title: '넥스트',
-    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/next2.jpg',
+    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/next2.webp',
     genre: 'SF, 스릴러',
     synopsis: '라스베가스의 마술사 크리스 존슨. 그는 2분 후의 미래를 볼 수 있는 아주 특별한 능력을 갖고 있지만, 가급적 드러내지 않고 조용히 지내려 한다. 그러던 어느 날, 카지노에서 총기강도 사건을 예견하고, 사고를 방지하려다가 도리어 총기강도 사건에 휘말린다.',
     watchLinks: [],
@@ -373,7 +374,7 @@ export const movies: Movie[] = [
   //   titleKo: '인셉션',
   //   titleEn: 'Inception',
   //   title:
-  //   thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/inception.jpg',
+  //   thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/inception.webp',
   //   genre: '액션, SF',
   //   synopsis: '타인의 꿈에 들어가 생각을 훔칠 수 있는 가까운 미래.',
   //   watchLinks: [
@@ -404,7 +405,7 @@ export const movies: Movie[] = [
     titleKo: '헤어질 결심',
     titleEn: 'Decision to Leave',
     title: '헤어질 결심',
-    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/decision-leave.jpg',
+    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/decision-leave.webp',
     genre: '드라마, 로맨스',
     synopsis: '형사 해준은 추락사고 사망자의 아내 서래가 일반적인 유가족과 다른 반응을 보이자, 그를 용의선상에 올린다. 해준은 서래에 대해 조사하며 관심이 커지고, 서래도 해준을 거절하지 않는다.',
     watchLinks: [
@@ -451,7 +452,7 @@ export const movies: Movie[] = [
     titleKo: '더 기버 : 기억전달자',
     titleEn: 'The Giver',
     title: '기억 혁명',
-    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/the-giver.jpg',
+    thumbnail: 'https://github.com/kyuurious123/movie-image/raw/main/the-giver.webp',
     genre: 'SF, 스릴러',
     synopsis: '가난과 차별이 존재하지 않는 커뮤니티에서 살던 조너스는 수여식에서 기억 보유자의 직위를 부여받는다. 선대 기억 전달자와의 훈련을 통해 제거된 과거를 배운 조너스는 모순이 가득한 커뮤니티를 탈출하기로 한다.',
     watchLinks: [
