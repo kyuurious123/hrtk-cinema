@@ -204,6 +204,8 @@ function NovelRenderer({ content }: { content: NovelContent }) {
 }
 function IllustrationRenderer({ content, titleKo }: { content: IllustrationContent; titleKo: string }) {
   const [tapped, setTapped] = useState(false)
+  const [hovered, setHovered] = useState(false)
+  const isTouchDevice = typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches
 
   // imageUrl 정규화
   const images = Array.isArray(content.imageUrl)
@@ -226,12 +228,11 @@ function IllustrationRenderer({ content, titleKo }: { content: IllustrationConte
         last = match.index + match[0].length
       }
       if (last < line.length) parts.push(line.slice(last))
-      return <p key={i} className="text-[#eaeaeb] leading-7">{parts}</p>
+      return <p key={i} className="indent-7 font-normal text-[17px] text-[#eaeaeb] leading-8">{parts}</p>
     }
-
     return text.split('\n').map((line, i) =>
       line.trim() === ''
-        ? <div key={i} className="h-4" />   // 빈 줄 = 단락 간격
+        ? <div key={i} className="h-4" />
         : parseLine(line, i)
     )
   }
@@ -243,6 +244,9 @@ function IllustrationRenderer({ content, titleKo }: { content: IllustrationConte
   ) : null
 
   if (content.hoverImageUrl) {
+    const hoverWidth = isTouchDevice
+      ? (content.width ? '90vw' : '100%')
+      : (content.width ?? '100%')
     return (
       <>
         {caption}
@@ -252,23 +256,26 @@ function IllustrationRenderer({ content, titleKo }: { content: IllustrationConte
             backgroundImage: content.backgroundUrl ? `url(${content.backgroundUrl})` : undefined,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-        }}
-      >
-        <div
-          className="relative group cursor-pointer"
-          onClick={() => setTapped((v) => !v)}
+          }}
         >
-          <img
-            src={images[0].src}
-            alt={titleKo}
-            className="max-h-screen object-contain"
-          />
-          <img
-            src={content.hoverImageUrl}
-            alt={titleKo}
-            className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300
-              ${tapped ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
-          />
+          <div
+            className="relative cursor-pointer max-w-full"
+            style={{ width: hoverWidth }}
+            onClick={() => setTapped((v) => !v)}
+            onMouseEnter={() => !isTouchDevice && setHovered(true)}
+            onMouseLeave={() => !isTouchDevice && setHovered(false)}
+          >
+            <img
+              src={images[0].src}
+              alt={titleKo}
+              className="w-full object-contain"
+            />
+            <img
+              src={content.hoverImageUrl}
+              alt={titleKo}
+              className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300
+                ${(isTouchDevice ? tapped : hovered) ? 'opacity-100' : 'opacity-0'}`}
+            />
           </div>
         </div>
       </>
@@ -279,22 +286,23 @@ function IllustrationRenderer({ content, titleKo }: { content: IllustrationConte
   return (
     <>
       {caption}
-    <div className="flex flex-col items-center">
-      {images.map((img, i) => (
-        <img
-          key={i}
-          src={img.src}
-          alt={`${titleKo} ${i + 1}`}
-          className="block max-md:!w-full"
-          style={{
-            width: img.width ?? '100%',
-          }}
-        />
-      ))}
-    </div>
+      <div className="flex flex-col items-center">
+        {images.map((img, i) => (
+          <img
+            key={i}
+            src={img.src}
+            alt={`${titleKo} ${i + 1}`}
+            className="block max-md:!w-full"
+            style={{
+              width: window.innerWidth < 768 ? (img.width ? '90vw' : '100%') : (img.width ?? '100%'),
+            }}
+          />
+        ))}
+      </div>
     </>
   )
 }
+
 
 function ComicsRenderer({ content, titleKo }: { content: ComicsContent; titleKo: string }) {
   const [current, setCurrent] = useState(0)

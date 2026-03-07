@@ -139,7 +139,7 @@ export const movies: Movie[] = [
       imageUrl: 'https://raw.githubusercontent.com/kyuurious123/movie-image/main/illust/two-sisters01.webp',
       hoverImageUrl: 'https://github.com/kyuurious123/movie-image/raw/main/illust/two-sisters02.webp',
       backgroundUrl: 'https://github.com/kyuurious123/movie-image/raw/main/illust/bg.webp',
-      width: '30vw',
+      width: '30%',
     },
   },
   {
