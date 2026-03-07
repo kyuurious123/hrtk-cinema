@@ -204,6 +204,8 @@ function IllustrationRenderer({ content, titleKo }: { content: IllustrationConte
     : [{ src: content.imageUrl as string, width: undefined }]
 
   if (content.hoverImageUrl) {
+    const isMobile = window.innerWidth < 768
+    const hoverWidth = isMobile ? (content.width ? '90vw' : '100%') : (content.width ?? '100%')
     return (
       <div
         className="relative w-full min-h-screen flex items-center justify-center"
@@ -214,13 +216,14 @@ function IllustrationRenderer({ content, titleKo }: { content: IllustrationConte
         }}
       >
         <div
-          className="relative group cursor-pointer"
+          className="relative group cursor-pointer max-w-full"
+          style={{ width: hoverWidth }}
           onClick={() => setTapped((v) => !v)}
         >
           <img
             src={images[0].src}
             alt={titleKo}
-            className="max-h-screen object-contain"
+            className="w-full object-contain"
           />
           <img
             src={content.hoverImageUrl}
@@ -243,7 +246,7 @@ function IllustrationRenderer({ content, titleKo }: { content: IllustrationConte
           alt={`${titleKo} ${i + 1}`}
           className="block max-md:!w-full"
           style={{
-            width: img.width ?? '100%',
+            width: window.innerWidth < 768 ? (img.width ? '90vw' : '100%') : (img.width ?? '100%'),
           }}
         />
       ))}

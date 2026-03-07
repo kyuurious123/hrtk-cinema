@@ -194,7 +194,7 @@ export default function GuestBook() {
               disabled={!canSubmit}
               className="border border-red-900/50 text-red-300/70 text-sm uppercase px-5 py-2 transition-all disabled:opacity-30 hover:border-red-700/70 hover:text-red-300 disabled:cursor-not-allowed"
             >
-              {submitting ? '저장 중...' : '남기기'}
+              {submitting ? '저장 중...' : '등록'}
             </button>
           </div>
         </div>
@@ -208,7 +208,7 @@ export default function GuestBook() {
               <li key={entry.id} className="border-b border-white/[0.06] pb-5 group">
                 <div className="flex justify-between items-baseline mb-2">
                   <div className="flex items-baseline gap-3">
-                    <span className="text-xs text-red-300/70 tracking-[0.1em]">
+                    <span className="text-sm text-gray-200">
                       {entry.nickname}
                     </span>
                     <span className="text-xs text-gray-600">
@@ -223,7 +223,7 @@ export default function GuestBook() {
                     삭제
                   </button>
                 </div>
-                <p className="text-sm text-[#ccc4bc] leading-[1.75] break-keep font-serif">
+                <p className="text-gray-50 leading-[1.8] break-keep">
                   {entry.message}
                 </p>
               </li>
