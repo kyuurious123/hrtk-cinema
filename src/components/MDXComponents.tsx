@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 
 
 export const p = ({ children }: { children: ReactNode }) => (
-  <p className="text-[17px] text-[#eaeaeb] leading-[1.95] mb-6">{children}</p>
+  <p className="text-[17px] text-[#eaeaeb] leading-[1.8] mb-6 tracking-tight">{children}</p>
 )
 
 export const strong = ({ children }: { children: ReactNode }) => (

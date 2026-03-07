@@ -187,7 +187,7 @@ function NovelRenderer({ content }: { content: NovelContent }) {
 
   return (
     <MDXProvider components={MDXComponents}>  {/* ← 여기로 이동 */}
-      <div className="pb-4 indent-3 font-normal text-[17px] text-[#eaeaeb] leading-7">
+      <div className="pb-4 indent-3 font-normal text-[17px] text-[#eaeaeb]">
         <Component />
       </div>
     </MDXProvider>
