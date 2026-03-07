@@ -42,7 +42,7 @@ export default function Detail() {
     pauseGlobal()
     const audio = new Audio(pageBgmSrc)
     audio.loop = true
-    audio.volume = 0.5
+    audio.volume = 0.6
     audio.play().catch(() => {})
     pageAudioRef.current = audio
     return () => {
