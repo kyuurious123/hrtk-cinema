@@ -1,6 +1,7 @@
 // src/pages/Detail.tsx
 // 필요한 패키지: npm install @mdx-js/rollup @mdx-js/react remark-gfm
 import { useState, useRef, useEffect } from 'react'
+import { useBGM, PAGE_BGM } from '../context/BGMContext'
 import { useParams, useNavigate } from 'react-router-dom'
 import { MDXProvider } from '@mdx-js/react'
 import { movies } from '../data/movies'
@@ -11,12 +12,6 @@ import ArrowIcon from '../assets/arrow.svg'
 
 // 비밀번호가 필요한 글의 id (여러 개도 가능: [3, 7, 12])
 const LOCKED_IDS: number[] = [8]
-
-// ── BGM 설정 ──────────────────────────────────────────────
-const BGM_POSTS: Record<number, { youtubeId: string }> = {
-  6: { youtubeId: 'ugOkFozf3oo' },
-  // 3: { youtubeId: 'abc123xyz' },
-}
 
 function getMovieById(id: string): Movie | undefined {
   return movies.find((m) => String(m.id) === id)
@@ -34,9 +29,28 @@ export default function Detail() {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const [movieInfoOpen, setMovieInfoOpen] = useState(false)
-  const isLocked = LOCKED_IDS.includes(Number(id))
+  const numericId = Number(id)
+  const isLocked = LOCKED_IDS.includes(numericId)
   const [unlocked, setUnlocked] = useState(false)
-  const bgmConfig = BGM_POSTS[Number(id)]
+  const pageBgmSrc = PAGE_BGM[numericId]
+  const { pauseGlobal, resumeGlobal } = useBGM()
+  const pageAudioRef = useRef<HTMLAudioElement | null>(null)
+
+  // 페이지별 BGM — 진입 시 자동재생, 나가면 글로벌 재개
+  useEffect(() => {
+    if (!pageBgmSrc) return
+    pauseGlobal()
+    const audio = new Audio(pageBgmSrc)
+    audio.loop = true
+    audio.volume = 0.5
+    audio.play().catch(() => {})
+    pageAudioRef.current = audio
+    return () => {
+      audio.pause()
+      pageAudioRef.current = null
+      resumeGlobal()
+    }
+  }, [pageBgmSrc])
 
   const movie = getMovieById(id ?? '')
   const { prev, next } = getAdjacentMovies(id ?? '')
@@ -57,11 +71,6 @@ export default function Detail() {
 
   return (
     <div className="text-white min-h-screen">
-
-      {/* ── BGM 플레이어 (숨김) ── */}
-      {bgmConfig && (!isLocked || unlocked) && (
-        <YoutubeBgm youtubeId={bgmConfig.youtubeId} />
-      )}
 
       {/* ── 헤더 ── */}
       <div className="max-w-2xl mx-auto px-6 pt-16 pb-0 mb-20 md:mb-10">
@@ -204,8 +213,6 @@ function IllustrationRenderer({ content, titleKo }: { content: IllustrationConte
     : [{ src: content.imageUrl as string, width: undefined }]
 
   if (content.hoverImageUrl) {
-    const isMobile = window.innerWidth < 768
-    const hoverWidth = isMobile ? (content.width ? '90vw' : '100%') : (content.width ?? '100%')
     return (
       <div
         className="relative w-full min-h-screen flex items-center justify-center"
@@ -216,14 +223,13 @@ function IllustrationRenderer({ content, titleKo }: { content: IllustrationConte
         }}
       >
         <div
-          className="relative group cursor-pointer max-w-full"
-          style={{ width: hoverWidth }}
+          className="relative group cursor-pointer"
           onClick={() => setTapped((v) => !v)}
         >
           <img
             src={images[0].src}
             alt={titleKo}
-            className="w-full object-contain"
+            className="max-h-screen object-contain"
           />
           <img
             src={content.hoverImageUrl}
@@ -246,7 +252,7 @@ function IllustrationRenderer({ content, titleKo }: { content: IllustrationConte
           alt={`${titleKo} ${i + 1}`}
           className="block max-md:!w-full"
           style={{
-            width: window.innerWidth < 768 ? (img.width ? '90vw' : '100%') : (img.width ?? '100%'),
+            width: img.width ?? '100%',
           }}
         />
       ))}
@@ -376,68 +382,6 @@ function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
   )
 }
 
-// ── YouTube BGM ────────────────────────────────────────────
-
-function YoutubeBgm({ youtubeId }: { youtubeId: string }) {
-  const iframeRef = useRef<HTMLIFrameElement>(null)
-  const [playing, setPlaying] = useState(false)
-  const [ready, setReady] = useState(false)
-
-  // YouTube IFrame API로 메시지 전송
-  const postCommand = (func: string) => {
-    iframeRef.current?.contentWindow?.postMessage(
-      JSON.stringify({ event: 'command', func }),
-      '*'
-    )
-  }
-
-  // 재생/일시정지 토글
-  const toggle = () => {
-    if (!ready) return
-    if (playing) {
-      postCommand('pauseVideo')
-    } else {
-      postCommand('playVideo')
-    }
-    setPlaying(v => !v)
-  }
-
-  // iframe 로드 완료 시 ready 상태로 변경
-  const handleLoad = () => setReady(true)
-
-  // 페이지 벗어나면 정지 후 src 제거
-  useEffect(() => {
-    return () => {
-      postCommand('pauseVideo')
-      setTimeout(() => {
-        if (iframeRef.current) iframeRef.current.src = ''
-      }, 100)
-    }
-  }, [])
-
-  return (
-    <>
-      {/* 숨겨진 iframe — enablejsapi=1 필수 */}
-      <iframe
-        ref={iframeRef}
-        src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&loop=1&playlist=${youtubeId}&controls=0&mute=0&enablejsapi=1`}
-        allow="autoplay"
-        className="hidden"
-        title="bgm"
-        onLoad={handleLoad}
-      />
-      {/* 우하단 토글 버튼 */}
-      <button
-        onClick={toggle}
-        className="fixed bottom-20 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white text-base transition-colors backdrop-blur-sm border border-white/20"
-        aria-label={playing ? 'BGM 일시정지' : 'BGM 재생'}
-        title={playing ? 'BGM 일시정지' : 'BGM 재생'}
-      >
-        {playing ? '⏸' : '♪'}
-      </button>
-    </>
-  )
-}
 
 // ── 스크롤 투 탑 버튼 ────────────────────────────────────
 
@@ -445,7 +389,7 @@ function ScrollToTopButton() {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className="fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white text-sm transition-colors backdrop-blur-sm border border-white/20"
+      className="fixed bottom-6 right-4 md:right-8 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white text-sm transition-colors backdrop-blur-sm border border-white/20"
       aria-label="맨 위로"
       title="맨 위로"
     >
