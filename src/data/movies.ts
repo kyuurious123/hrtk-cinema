@@ -421,10 +421,11 @@ export const movies: Movie[] = [
     content: {
       kind: 'illustration',
       imageUrl:[
-        'https://github.com/kyuurious123/movie-image/raw/main/illust/decision-leave-poster.webp?',
-        'https://github.com/kyuurious123/movie-image/raw/main/illust/decision-leave01.webp',
-        'https://github.com/kyuurious123/movie-image/raw/main/illust/decision-leave02.webp',
-        'https://github.com/kyuurious123/movie-image/raw/main/illust/decision-leave03.webp'
+        {src : 'https://github.com/kyuurious123/movie-image/raw/main/illust/decision-leave-poster.webp', width : "50%"},
+        {src :
+        'https://github.com/kyuurious123/movie-image/raw/main/illust/decision-leave01.webp', width : "50%"},
+        {src : 'https://github.com/kyuurious123/movie-image/raw/main/illust/decision-leave02.webp', width : "50%" },
+        {src : 'https://github.com/kyuurious123/movie-image/raw/main/illust/decision-leave03.webp', width : "50%"}
 
       ]
      },
