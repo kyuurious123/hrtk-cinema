@@ -425,7 +425,7 @@ function ScrollToTopButton() {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className="fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white text-sm transition-colors backdrop-blur-sm border border-white/20"
+      className="fixed bottom-6 right-4 md:right-8 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white text-sm transition-colors backdrop-blur-sm border border-white/20"
       aria-label="맨 위로"
       title="맨 위로"
     >
