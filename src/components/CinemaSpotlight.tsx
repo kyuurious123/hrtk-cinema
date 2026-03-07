@@ -28,39 +28,7 @@ export default function CinemaSpotlight({ imageSrc, mobileImageSrc, titleSrc, to
   const imgRef = useRef<HTMLImageElement | null>(null);
   const progressRef = useRef<number>(0);
   const [labelVisible, setLabelVisible] = useState(false);
-  // const [typedText, setTypedText] = useState("");
-  const TICKER = "A lot of life is dealing with your curse, dealing with the cards you were given that aren't so nice. Does it make you into a monster, or can you temper it in some way, or accept it and go in some other direction?";
 
-  useEffect(() => {
-    let i = 0;
-    let isDeleting = false;
-    let timer: ReturnType<typeof setTimeout>;
-
-    function tick() {
-      if (!isDeleting) {
-        i++;
-        setTypedText(TICKER.slice(0, i));
-        if (i === TICKER.length) {
-          isDeleting = true;
-          timer = setTimeout(tick, 2000);
-          return;
-        }
-        timer = setTimeout(tick, 38);
-      } else {
-        i--;
-        setTypedText(TICKER.slice(0, i));
-        if (i === 0) {
-          isDeleting = false;
-          timer = setTimeout(tick, 600);
-          return;
-        }
-        timer = setTimeout(tick, 18);
-      }
-    }
-
-    timer = setTimeout(tick, 1200);
-    return () => clearTimeout(timer);
-  }, []);
 
 function resizeCanvas() {
   const canvas = canvasRef.current;
