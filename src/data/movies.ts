@@ -10,6 +10,7 @@ export type IllustrationContent = {
   hoverImageUrl?: string
   width?: string
   backgroundUrl?: string
+  caption?: string
 }
 
 export type ComicsContent       = { kind: 'comics'; pages: string[] }
@@ -270,9 +271,11 @@ export const movies: Movie[] = [
       { name: '웨이브', url: 'https://www.wavve.com/player/movie?movieid=MV_CD01_WR0000011244' },
     ],
     content: { kind: 'illustration', 
+      caption: '**Mirror of Erised.**\n \n이 거울이 보여 주는 건 우리 마음속 가장 깊고도 간절한 욕망 그 이상도 이하도 아니란다. (중략)\n하지만 이 거울은 우리에게 지식이나 진실을 전해 주지 않는단다.\n많은 사람이 이 앞에서 인생을 허비했어.\n여기에 비치는 모습에 도취되거나 광기에 빠져서,\n거울이 보여 주는 게 현실인지,\n심지어 가능한 일인지조차 알지 못하는 채로 말이다.\n*It shows us nothing more or less than the deepest, most desperate desire of our hearts. (...)*\n*However, this mirror will give us neither knowledge or truth.*\n*Men have wasted away before it, entranced by what they have seen, or been driven mad,*\n*not knowing if what it shows is real or even possible.*\n \n \n― 1권 12장, 해리에게 소망의 거울의 용도와 위험성을 알리며..',
       imageUrl: [
         { src : 'https://github.com/kyuurious123/movie-image/raw/main/illust/harrypoter.webp', width : '90%' }
       ]
+      
       },
   },
   {

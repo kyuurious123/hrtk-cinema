@@ -27,7 +27,7 @@ export function BGMProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const audio = new Audio(GLOBAL_BGM_SRC)
     audio.loop = true
-    audio.volume = 0.2
+    audio.volume = 0.16
     audioRef.current = audio
     return () => {
       audio.pause()

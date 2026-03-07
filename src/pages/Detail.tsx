@@ -42,7 +42,7 @@ export default function Detail() {
     pauseGlobal()
     const audio = new Audio(pageBgmSrc)
     audio.loop = true
-    audio.volume = 0.6
+    audio.volume = 0.5
     audio.play().catch(() => {})
     pageAudioRef.current = audio
     return () => {
@@ -212,14 +212,46 @@ function IllustrationRenderer({ content, titleKo }: { content: IllustrationConte
       )
     : [{ src: content.imageUrl as string, width: undefined }]
 
+  // 마크다운 파싱 (볼드, 이탤릭, 줄바꿈 지원)
+  const parseCaption = (text: string) => {
+    const parseLine = (line: string, i: number) => {
+      const parts: React.ReactNode[] = []
+      const regex = /\*\*(.+?)\*\*|\*(.+?)\*/g
+      let last = 0
+      let match
+      while ((match = regex.exec(line)) !== null) {
+        if (match.index > last) parts.push(line.slice(last, match.index))
+        if (match[1] !== undefined) parts.push(<strong key={match.index}>{match[1]}</strong>)
+        else if (match[2] !== undefined) parts.push(<em key={match.index}>{match[2]}</em>)
+        last = match.index + match[0].length
+      }
+      if (last < line.length) parts.push(line.slice(last))
+      return <p key={i} className="text-[#eaeaeb] leading-7">{parts}</p>
+    }
+
+    return text.split('\n').map((line, i) =>
+      line.trim() === ''
+        ? <div key={i} className="h-4" />   // 빈 줄 = 단락 간격
+        : parseLine(line, i)
+    )
+  }
+
+  const caption = content.caption ? (
+    <div className="max-w-2xl mx-auto px-4 mb-8">
+      {parseCaption(content.caption)}
+    </div>
+  ) : null
+
   if (content.hoverImageUrl) {
     return (
-      <div
-        className="relative w-full min-h-screen flex items-center justify-center"
-        style={{
-          backgroundImage: content.backgroundUrl ? `url(${content.backgroundUrl})` : undefined,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+      <>
+        {caption}
+        <div
+          className="relative w-full min-h-screen flex items-center justify-center"
+          style={{
+            backgroundImage: content.backgroundUrl ? `url(${content.backgroundUrl})` : undefined,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
         }}
       >
         <div
@@ -237,13 +269,16 @@ function IllustrationRenderer({ content, titleKo }: { content: IllustrationConte
             className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300
               ${tapped ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
           />
+          </div>
         </div>
-      </div>
+      </>
     )
   }
 
   // 일반 이미지 (단일 or 배열)
   return (
+    <>
+      {caption}
     <div className="flex flex-col items-center">
       {images.map((img, i) => (
         <img
@@ -257,6 +292,7 @@ function IllustrationRenderer({ content, titleKo }: { content: IllustrationConte
         />
       ))}
     </div>
+    </>
   )
 }
 
@@ -389,7 +425,7 @@ function ScrollToTopButton() {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className="fixed bottom-6 right-4 md:right-8 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white text-sm transition-colors backdrop-blur-sm border border-white/20"
+      className="fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white text-sm transition-colors backdrop-blur-sm border border-white/20"
       aria-label="맨 위로"
       title="맨 위로"
     >
