@@ -85,7 +85,7 @@ export const movies: Movie[] = [
     watchLinks: [],
     content: { kind: 'illustration', 
       imageUrl: [
-        {src : 'https://github.com/kyuurious123/movie-image/raw/main/illust/mickey17.gif', width: '45%' }]
+        {src : 'https://github.com/kyuurious123/movie-image/raw/main/illust/mickey1702.gif', width: '45%' }]
       },
   },
   {
